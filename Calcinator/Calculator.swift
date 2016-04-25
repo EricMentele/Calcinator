@@ -18,16 +18,25 @@ class Calculator {
     // MARK: Private Properties
     private enum Operation {
         case BinaryOperation((Double, Double) -> Double)
+        case UnaryOperation((Double) -> Double)
         case Equals
     }
     
     private let operations: Dictionary<String,Operation> = [
+        "C" : Operation.UnaryOperation({ $0 * 0 }),
         "÷" : Operation.BinaryOperation({ $0 / $1 }),
         "×" : Operation.BinaryOperation({ $0 * $1 }),
         "−" : Operation.BinaryOperation({ $0 - $1 }),
         "+" : Operation.BinaryOperation({ $0 + $1 }),
         "=" : Operation.Equals
     ]
+    
+    private var pending: PendingBinaryOperation?
+    
+    struct PendingBinaryOperation {
+        let operation: (Double, Double) -> Double
+        let firstOperand: Double
+    }
     
         /// Keep track of the running total of operations
     private var total = 0.0
@@ -56,10 +65,29 @@ class Calculator {
         total = total * -1
     }
     
+    /**
+     Converts the current total to a percentage.
+     */
     func getPercent() {
         total = total / 100
     }
-    //Perform Operation
-    // MARK: Private Methods
     
+    func doOperation(symbol: String) {
+        if let operation = operations[symbol] {
+            switch operation {
+            case .BinaryOperation(let function):
+                doPendingOperation()
+                pending = PendingBinaryOperation(operation: function, firstOperand: total)
+            case .Equals:
+                doPendingOperation()
+            }
+        }
+    }
+    // MARK: Private Methods
+    private func doPendingOperation() {
+        if let pendingOperation = pending {
+            total = pendingOperation.operation(pendingOperation.firstOperand, total)
+            pending = nil
+        }
+    }
 }
