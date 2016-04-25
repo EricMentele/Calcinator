@@ -10,7 +10,18 @@ import XCTest
 @testable import Calcinator
 
 class CalcinatorTests: XCTestCase {
-    func testExample() {
+    func testOpperandAssignment() {
+        let calc = Calculator()
+        calc.setOperand(5.0)
         
+        XCTAssertEqual(calc.result, 5.0)
+    }
+    
+    func testClearOpperand() {
+        let calc = Calculator()
+        calc.setOperand(5)
+        calc.clear()
+        
+        XCTAssertEqual(calc.result, 0)
     }
 }
