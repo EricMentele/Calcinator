@@ -16,8 +16,19 @@ class Calculator {
     }
     
     // MARK: Private Properties
-    // Operation types
-    // Operations
+    private enum Operation {
+        case BinaryOperation((Double, Double) -> Double)
+        case Equals
+    }
+    
+    private let operations: Dictionary<String,Operation> = [
+        "÷" : Operation.BinaryOperation({ $0 / $1 }),
+        "×" : Operation.BinaryOperation({ $0 * $1 }),
+        "−" : Operation.BinaryOperation({ $0 - $1 }),
+        "+" : Operation.BinaryOperation({ $0 + $1 }),
+        "=" : Operation.Equals
+    ]
+    
         /// Keep track of the running total of operations
     private var total = 0.0
     
@@ -38,9 +49,17 @@ class Calculator {
         total = 0.0
     }
     
-    //Set negative/positive
-    //Convert to percentage
+    /**
+     Changes sign of opperand to negative/or posative.
+     */
+    func toggleSign() {
+        total = total * -1
+    }
+    
+    func getPercent() {
+        total = total / 100
+    }
     //Perform Operation
-    // MARK: Public Methods
+    // MARK: Private Methods
     
 }

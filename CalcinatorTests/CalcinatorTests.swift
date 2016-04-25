@@ -24,4 +24,19 @@ class CalcinatorTests: XCTestCase {
         
         XCTAssertEqual(calc.result, 0)
     }
+    
+    func testToggleSign() {
+        let calc = Calculator()
+        calc.toggleSign()
+        
+        XCTAssertEqual(calc.result, -0)
+    }
+    
+    func testGetPercent() {
+        let calc = Calculator()
+        calc.setOperand(8)
+        calc.getPercent()
+        
+        XCTAssertEqual(calc.result, 0.08)
+    }
 }
