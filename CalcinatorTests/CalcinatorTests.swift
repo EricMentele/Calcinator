@@ -10,7 +10,7 @@ import XCTest
 @testable import Calcinator
 
 class CalcinatorTests: XCTestCase {
-    // test calculator functions
+    // test unary operations
     func testOpperandAssignment() {
         let calc = Calculator()
         calc.setOperand(5.0)
@@ -21,22 +21,35 @@ class CalcinatorTests: XCTestCase {
     func testClearOpperand() {
         let calc = Calculator()
         calc.setOperand(5)
-        calc.clear()
+        calc.doOperation("C")
         
         XCTAssertEqual(calc.result, 0)
     }
     
+    func testClearWithCalculation() {
+        let calc = Calculator()
+        calc.setOperand(5)
+        calc.doOperation("+")
+        calc.setOperand(5)
+        calc.doOperation("C")
+        calc.setOperand(6)
+        calc.doOperation("=")
+        
+        XCTAssertEqual(calc.result, 11)
+    }
+    
     func testToggleSign() {
         let calc = Calculator()
-        calc.toggleSign()
+        calc.setOperand(5)
+        calc.doOperation("±")
         
-        XCTAssertEqual(calc.result, -0)
+        XCTAssertEqual(calc.result, -5)
     }
     
     func testGetPercent() {
         let calc = Calculator()
         calc.setOperand(8)
-        calc.getPercent()
+        calc.doOperation("%")
         
         XCTAssertEqual(calc.result, 0.08)
     }

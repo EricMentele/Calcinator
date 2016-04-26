@@ -24,6 +24,8 @@ class Calculator {
     
     private let operations: Dictionary<String,Operation> = [
         "C" : Operation.UnaryOperation({ $0 * 0 }),
+        "±" : Operation.UnaryOperation({ -$0 }),
+        "%" : Operation.UnaryOperation({ $0 / 100 }),
         "÷" : Operation.BinaryOperation({ $0 / $1 }),
         "×" : Operation.BinaryOperation({ $0 * $1 }),
         "−" : Operation.BinaryOperation({ $0 - $1 }),
@@ -51,30 +53,11 @@ class Calculator {
         total = opperand
     }
     
-    /**
-     Resets total/opperand to 0
-     */
-    func clear() {
-        total = 0.0
-    }
-    
-    /**
-     Changes sign of opperand to negative/or posative.
-     */
-    func toggleSign() {
-        total = total * -1
-    }
-    
-    /**
-     Converts the current total to a percentage.
-     */
-    func getPercent() {
-        total = total / 100
-    }
-    
     func doOperation(symbol: String) {
         if let operation = operations[symbol] {
             switch operation {
+            case .UnaryOperation(let function):
+                total = function(total)
             case .BinaryOperation(let function):
                 doPendingOperation()
                 pending = PendingBinaryOperation(operation: function, firstOperand: total)
