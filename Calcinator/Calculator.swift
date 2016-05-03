@@ -24,7 +24,7 @@ class Calculator {
     
     private let operations: Dictionary<String,Operation> = [
         "C" : Operation.UnaryOperation({ $0 * 0 }),
-        "±" : Operation.UnaryOperation({ -$0 }),
+        "\u{207A}\u{2215}\u{208B}" : Operation.UnaryOperation({ -$0 }),
         "%" : Operation.UnaryOperation({ $0 / 100 }),
         "÷" : Operation.BinaryOperation({ $0 / $1 }),
         "×" : Operation.BinaryOperation({ $0 * $1 }),
