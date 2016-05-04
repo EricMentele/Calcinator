@@ -9,16 +9,68 @@
 import UIKit
 
 class CalcinatorViewController: UIViewController {
-
+    // MARK: Outlets
+    @IBOutlet weak var historyLabel: UILabel!
+    @IBOutlet weak var displayLabel: UILabel!
+    
+    // MARK: Properties
+    private let calculator = Calculator()
+    
+    private var userIsInTheMiddleOfTyping = false
+    private var pointAdded = false
+    
+    private var displayValue: Double {
+        get {
+            let value: Double = Double(displayLabel.text!)!
+            return value
+        }
+        set {
+            self.displayLabel.text = String(newValue)
+        }
+    }
+    
+    // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: Actions
+    @IBAction func digitPressed(sender: UIButton) {
+        guard let digit = sender.currentTitle else {
+            return
+        }
+        
+        if digit == "." && pointAdded == true {
+            return
+        }
+        
+        if userIsInTheMiddleOfTyping {
+            self.displayLabel.text = displayLabel.text! + digit
+        } else {
+            self.displayLabel.text = digit
+        }
+        
+        if sender.currentTitle  == "." {
+            self.pointAdded = true
+        }
+        
+        userIsInTheMiddleOfTyping = true
+    }
+    
+    @IBAction func operatorPressed(sender: UIButton) {
+        guard let pressedOperator = sender.currentTitle else {
+            return
+        }
+        
+        pointAdded = false
+        
+        if userIsInTheMiddleOfTyping {
+            calculator.setOperand(displayValue)
+            self.userIsInTheMiddleOfTyping = false
+        }
+        
+        calculator.doOperation(pressedOperator)
+        self.displayValue = calculator.result
     }
     
 

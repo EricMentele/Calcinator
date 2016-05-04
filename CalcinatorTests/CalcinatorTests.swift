@@ -10,6 +10,7 @@ import XCTest
 @testable import Calcinator
 
 class CalcinatorTests: XCTestCase {
+    // MARK: Calculator Model
     // test unary operations
     func testOpperandAssignment() {
         let calc = Calculator()
@@ -110,5 +111,41 @@ class CalcinatorTests: XCTestCase {
         calc.doOperation("=")
         
         XCTAssertEqual(calc.result, 64)
+    }
+    
+    // MARK: Calculator View Controller
+    func testPointAddedNotDuplicated() {
+        let controller = CalcinatorViewController()
+        let button = UIButton()
+        let label = UILabel()
+        
+        label.text = ""
+        controller.displayLabel = label
+        
+        button.setTitle(".", forState: .Normal)
+        controller.digitPressed(button)
+        controller.digitPressed(button)
+        
+        XCTAssertEqual(controller.displayLabel.text!, ".")
+    }
+    
+    func testPointAfterOperation() {
+        let controller = CalcinatorViewController()
+        let button = UIButton()
+        let label = UILabel()
+        
+        label.text = ""
+        controller.displayLabel = label
+        
+        button.setTitle(".", forState: .Normal)
+        controller.digitPressed(button)
+        button.setTitle("5", forState: .Normal)
+        controller.digitPressed(button)
+        button.setTitle("+", forState: .Normal)
+        controller.operatorPressed(button)
+        button.setTitle(".", forState: .Normal)
+        controller.digitPressed(button)
+        
+        XCTAssertEqual(controller.displayLabel.text!, ".")
     }
 }
