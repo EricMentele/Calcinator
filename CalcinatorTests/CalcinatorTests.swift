@@ -42,7 +42,7 @@ class CalcinatorTests: XCTestCase {
     func testToggleSign() {
         let calc = Calculator()
         calc.setOperand(5)
-        calc.doOperation("±")
+        calc.doOperation("\u{207A}\u{2215}\u{208B}")
         
         XCTAssertEqual(calc.result, -5)
     }
@@ -129,7 +129,7 @@ class CalcinatorTests: XCTestCase {
         XCTAssertEqual(controller.displayLabel.text!, ".")
     }
     
-    func testPointAfterOperation() {
+    func testOperationAndPointAfterOperation() {
         let controller = CalcinatorViewController()
         let button = UIButton()
         let label = UILabel()
@@ -145,7 +145,11 @@ class CalcinatorTests: XCTestCase {
         controller.operatorPressed(button)
         button.setTitle(".", forState: .Normal)
         controller.digitPressed(button)
+        button.setTitle("5", forState: .Normal)
+        controller.digitPressed(button)
+        button.setTitle("=", forState: .Normal)
+        controller.operatorPressed(button)
         
-        XCTAssertEqual(controller.displayLabel.text!, ".")
+        XCTAssertEqual(controller.displayLabel.text!, "1.0")
     }
 }
