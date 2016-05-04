@@ -11,7 +11,7 @@ import UIKit
 class CalcinatorViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var historyLabel: UILabel!
-    @IBOutlet weak var currentOperandLabel: UILabel!
+    @IBOutlet weak var displayLabel: UILabel!
     
     // MARK: Properties
     private let calculator = Calculator()
@@ -19,22 +19,35 @@ class CalcinatorViewController: UIViewController {
     private var userIsInTheMiddleOfTyping = false
     private var pointAdded = false
     
+    private var displayValue: Double {
+        get {
+            let value: Double = Double(displayLabel.text!)!
+            return value
+        }
+        set {
+            self.displayLabel.text = String(newValue)
+        }
+    }
+    
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentOperandLabel.text = String(calculator.result)
     }
     
     // MARK: Actions
     @IBAction func digitPressed(sender: UIButton) {
-        guard sender.currentTitle == "." && pointAdded == false else {
+        guard let digit = sender.currentTitle else {
             return
         }
         
-        if !userIsInTheMiddleOfTyping {
-            self.currentOperandLabel.text = sender.currentTitle!
+        if digit == "." && pointAdded == true {
+            return
+        }
+        
+        if userIsInTheMiddleOfTyping {
+            self.displayLabel.text = displayLabel.text! + digit
         } else {
-            self.currentOperandLabel.text = currentOperandLabel.text! + sender.currentTitle!
+            self.displayLabel.text = digit
         }
         
         if sender.currentTitle  == "." {
@@ -45,8 +58,19 @@ class CalcinatorViewController: UIViewController {
     }
     
     @IBAction func operatorPressed(sender: UIButton) {
-        self.pointAdded = false
+        guard let pressedOperator = sender.currentTitle else {
+            return
+        }
         
+        pointAdded = false
+        
+        if userIsInTheMiddleOfTyping {
+            calculator.setOperand(displayValue)
+            self.userIsInTheMiddleOfTyping = false
+        }
+        
+        calculator.doOperation(pressedOperator)
+        self.displayValue = calculator.result
     }
     
 

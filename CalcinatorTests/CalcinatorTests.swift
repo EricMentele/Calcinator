@@ -114,18 +114,38 @@ class CalcinatorTests: XCTestCase {
     }
     
     // MARK: Calculator View Controller
-    func testPointAdded() {
+    func testPointAddedNotDuplicated() {
         let controller = CalcinatorViewController()
         let button = UIButton()
         let label = UILabel()
         
         label.text = ""
-        controller.currentOperandLabel = label
+        controller.displayLabel = label
         
         button.setTitle(".", forState: .Normal)
         controller.digitPressed(button)
         controller.digitPressed(button)
         
-        XCTAssertEqual(controller.currentOperandLabel.text!, ".")
+        XCTAssertEqual(controller.displayLabel.text!, ".")
+    }
+    
+    func testPointAfterOperation() {
+        let controller = CalcinatorViewController()
+        let button = UIButton()
+        let label = UILabel()
+        
+        label.text = ""
+        controller.displayLabel = label
+        
+        button.setTitle(".", forState: .Normal)
+        controller.digitPressed(button)
+        button.setTitle("5", forState: .Normal)
+        controller.digitPressed(button)
+        button.setTitle("+", forState: .Normal)
+        controller.operatorPressed(button)
+        button.setTitle(".", forState: .Normal)
+        controller.digitPressed(button)
+        
+        XCTAssertEqual(controller.displayLabel.text!, ".")
     }
 }
