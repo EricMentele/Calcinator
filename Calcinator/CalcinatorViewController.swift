@@ -9,16 +9,44 @@
 import UIKit
 
 class CalcinatorViewController: UIViewController {
-
+    // MARK: Outlets
+    @IBOutlet weak var historyLabel: UILabel!
+    @IBOutlet weak var currentOperandLabel: UILabel!
+    
+    // MARK: Properties
+    private let calculator = Calculator()
+    
+    private var userIsInTheMiddleOfTyping = false
+    private var pointAdded = false
+    
+    // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        currentOperandLabel.text = String(calculator.result)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: Actions
+    @IBAction func digitPressed(sender: UIButton) {
+        guard sender.currentTitle == "." && pointAdded == false else {
+            return
+        }
+        
+        if !userIsInTheMiddleOfTyping {
+            self.currentOperandLabel.text = sender.currentTitle!
+        } else {
+            self.currentOperandLabel.text = currentOperandLabel.text! + sender.currentTitle!
+        }
+        
+        if sender.currentTitle  == "." {
+            self.pointAdded = true
+        }
+        
+        userIsInTheMiddleOfTyping = true
+    }
+    
+    @IBAction func operatorPressed(sender: UIButton) {
+        self.pointAdded = false
+        
     }
     
 

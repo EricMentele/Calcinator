@@ -10,16 +10,20 @@ import Foundation
 
 class Calculator {
     // MARK: Public Properties
-        /// Get the resulting total of operations
+    /// Get the resulting total of operations
     var result: Double {
         return total
     }
     
+    /// Keep track of the running total of operations
+    private var total: Double = 0
+    
     // MARK: Private Properties
-    private enum Operation {
-        case BinaryOperation((Double, Double) -> Double)
-        case UnaryOperation((Double) -> Double)
-        case Equals
+    private var pending: PendingBinaryOperation?
+    
+    private struct PendingBinaryOperation {
+        let operation: (Double, Double) -> Double
+        let firstOperand: Double
     }
     
     private let operations: Dictionary<String,Operation> = [
@@ -33,15 +37,11 @@ class Calculator {
         "=" : Operation.Equals
     ]
     
-    private var pending: PendingBinaryOperation?
-    
-    struct PendingBinaryOperation {
-        let operation: (Double, Double) -> Double
-        let firstOperand: Double
+    private enum Operation {
+        case BinaryOperation((Double, Double) -> Double)
+        case UnaryOperation((Double) -> Double)
+        case Equals
     }
-    
-        /// Keep track of the running total of operations
-    private var total = 0.0
     
     // MARK: Public Methods
     /**
