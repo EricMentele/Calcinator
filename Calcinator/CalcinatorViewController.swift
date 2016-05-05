@@ -21,11 +21,12 @@ class CalcinatorViewController: UIViewController {
     
     private var displayValue: Double {
         get {
-            let value: Double = Double(displayLabel.text!)!
-            return value
+            return Double(displayLabel.text!)!
         }
         set {
-            self.displayLabel.text = String(newValue)
+            dispatch_async(dispatch_get_main_queue()) { 
+                self.displayLabel.text = String(newValue)
+            }
         }
     }
     
@@ -42,19 +43,16 @@ class CalcinatorViewController: UIViewController {
         
         if digit == "." && pointAdded == true {
             return
+        } else if digit  == "." {
+            self.pointAdded = true
         }
         
         if userIsInTheMiddleOfTyping {
             self.displayLabel.text = displayLabel.text! + digit
         } else {
             self.displayLabel.text = digit
+            self.userIsInTheMiddleOfTyping = true
         }
-        
-        if sender.currentTitle  == "." {
-            self.pointAdded = true
-        }
-        
-        userIsInTheMiddleOfTyping = true
     }
     
     @IBAction func operatorPressed(sender: UIButton) {
@@ -63,14 +61,14 @@ class CalcinatorViewController: UIViewController {
         }
         
         pointAdded = false
-        
+        // TODO: TEST THIS BETTER
         if userIsInTheMiddleOfTyping {
+            userIsInTheMiddleOfTyping = false
             calculator.setOperand(displayValue)
-            self.userIsInTheMiddleOfTyping = false
         }
         
         calculator.doOperation(pressedOperator)
-        self.displayValue = calculator.result
+        displayValue = calculator.result
     }
     
 

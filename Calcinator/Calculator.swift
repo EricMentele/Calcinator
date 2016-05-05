@@ -32,7 +32,7 @@ class Calculator {
         "%" : Operation.UnaryOperation({ $0 / 100 }),
         "÷" : Operation.BinaryOperation({ $0 / $1 }),
         "×" : Operation.BinaryOperation({ $0 * $1 }),
-        "−" : Operation.BinaryOperation({ $0 - $1 }),
+        "-" : Operation.BinaryOperation({ $0 - $1 }),
         "+" : Operation.BinaryOperation({ $0 + $1 }),
         "=" : Operation.Equals
     ]
