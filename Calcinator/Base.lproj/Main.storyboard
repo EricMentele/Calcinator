@@ -309,28 +309,22 @@
                                             <constraint firstItem="aoA-nW-jAh" firstAttribute="trailing" secondItem="aXF-tN-PAH" secondAttribute="trailing" id="1Ml-6s-A01"/>
                                             <constraint firstItem="9Ae-of-FqZ" firstAttribute="top" secondItem="nf6-4p-Sx3" secondAttribute="top" constant="1" id="tau-ua-87o"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="tau-ua-87o"/>
+                                            </mask>
+                                        </variation>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Pxx-1e-bmH" secondAttribute="trailing" id="0Ty-7k-3el"/>
-                                    <constraint firstItem="9MO-Zh-Bt3" firstAttribute="top" secondItem="Pxx-1e-bmH" secondAttribute="bottom" id="2ho-bN-jlG"/>
                                     <constraint firstItem="R5U-fA-ZEh" firstAttribute="leading" secondItem="9MO-Zh-Bt3" secondAttribute="leading" id="31j-Dg-TN2"/>
                                     <constraint firstItem="JlZ-CP-O0V" firstAttribute="leading" secondItem="9MO-Zh-Bt3" secondAttribute="leading" id="6Nh-Sl-fs1"/>
                                     <constraint firstItem="OuZ-cS-V9g" firstAttribute="leading" secondItem="9MO-Zh-Bt3" secondAttribute="leading" id="C5u-x4-EIz"/>
                                     <constraint firstItem="hXg-5p-bPp" firstAttribute="leading" secondItem="9MO-Zh-Bt3" secondAttribute="leading" id="RGe-1i-Rt9"/>
-                                    <constraint firstItem="Pxx-1e-bmH" firstAttribute="top" secondItem="iWF-Jd-7Sg" secondAttribute="top" id="Uci-bl-Sz5"/>
                                     <constraint firstItem="aoA-nW-jAh" firstAttribute="leading" secondItem="9MO-Zh-Bt3" secondAttribute="leading" id="dk9-Ao-zW5"/>
-                                    <constraint firstItem="Pxx-1e-bmH" firstAttribute="leading" secondItem="iWF-Jd-7Sg" secondAttribute="leading" id="qJ3-2I-cQU"/>
                                 </constraints>
                                 <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="Pxx-1e-bmH"/>
-                                    </mask>
                                     <mask key="constraints">
-                                        <exclude reference="0Ty-7k-3el"/>
-                                        <exclude reference="Uci-bl-Sz5"/>
-                                        <exclude reference="qJ3-2I-cQU"/>
-                                        <exclude reference="2ho-bN-jlG"/>
                                         <exclude reference="31j-Dg-TN2"/>
                                         <exclude reference="6Nh-Sl-fs1"/>
                                         <exclude reference="C5u-x4-EIz"/>
@@ -339,14 +333,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="Pxx-1e-bmH"/>
-                                    </mask>
                                     <mask key="constraints">
-                                        <include reference="0Ty-7k-3el"/>
-                                        <include reference="Uci-bl-Sz5"/>
-                                        <include reference="qJ3-2I-cQU"/>
-                                        <exclude reference="2ho-bN-jlG"/>
                                         <include reference="31j-Dg-TN2"/>
                                         <include reference="6Nh-Sl-fs1"/>
                                         <include reference="C5u-x4-EIz"/>
