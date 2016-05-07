@@ -75,6 +75,15 @@ class CalcinatorTests: XCTestCase {
         XCTAssertEqual(calc.result, 16)
     }
     
+    func testDoOperationMultiMultiply() {
+        let calc = Calculator()
+        calc.setOperand(5)
+        calc.doOperation("×")
+        calc.doOperation("×")
+        
+        XCTAssertEqual(calc.result, 25)
+    }
+    
     func testDoOperationSubtract() {
         let calc = Calculator()
         calc.setOperand(8)
