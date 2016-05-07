@@ -62,6 +62,10 @@ class Calculator {
         if let operation = operations[symbol] {
             switch operation {
             case .UnaryOperation(let function):
+                if symbol == "C" {
+                    pending = nil
+                }
+                
                 total = function(total)
             case .BinaryOperation(let function):
                 userIsInMiddleOfOperation = true
