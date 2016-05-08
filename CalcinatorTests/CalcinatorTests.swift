@@ -144,12 +144,32 @@ class CalcinatorTests: XCTestCase {
         XCTAssertEqual(calc.result, 32)
     }
     
+    func testFifteenAndTwentyPercentOperations() {
+        let calc = Calculator()
+        calc.setOperand(100)
+        calc.doOperation("15%")
+        calc.doOperation("20%")
+        
+        XCTAssertEqual(calc.result, 3)
+    }
+    
     func testClearNumber() {
         let calc = Calculator()
         calc.setOperand(8)
         calc.doOperation("C")
         
         XCTAssertEqual(calc.result, 0.0)
+    }
+    
+    func testNegativeNumber() {
+        let calc = Calculator()
+        calc.setOperand(3)
+        calc.doOperation("\u{207A}\u{2215}\u{208B}")
+        calc.doOperation("+")
+        calc.setOperand(5)
+        calc.doOperation("=")
+        
+        XCTAssertEqual(calc.result, 2)
     }
     
     // MARK: Calculator View Controller

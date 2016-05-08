@@ -12,6 +12,7 @@ class CalcinatorViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var historyLabel: UILabel!
     @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet weak var negativePositiveButton: UIButton!
     
     // MARK: Properties
     private let calculator = Calculator()
@@ -34,6 +35,8 @@ class CalcinatorViewController: UIViewController {
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        negativePositiveButton.setTitle("\u{207A}\u{2215}\u{208B}", forState: .Normal)
     }
     
     // MARK: Actions

@@ -32,6 +32,8 @@ class Calculator {
         "C" : Operation.UnaryOperation({ $0 * 0 }),
         "\u{207A}\u{2215}\u{208B}" : Operation.UnaryOperation({ -$0 }),
         "%" : Operation.UnaryOperation({ $0 / 100 }),
+        "15%" : Operation.UnaryOperation({ $0 * 0.15 }),
+        "20%" : Operation.UnaryOperation({ $0 * 0.20 }),
         "÷" : Operation.BinaryOperation({ $0 / $1 }),
         "×" : Operation.BinaryOperation({ $0 * $1 }),
         "-" : Operation.BinaryOperation({ $0 - $1 }),
