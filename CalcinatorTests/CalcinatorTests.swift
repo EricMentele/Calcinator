@@ -131,8 +131,25 @@ class CalcinatorTests: XCTestCase {
         XCTAssertEqual(calc.result, 8)
     }
     
-    func testClear() {
+    func testOperationWithTotal() {
+        let calc = Calculator()
+        calc.setOperand(8)
+        calc.doOperation("×")
+        calc.setOperand(2)
+        calc.doOperation("=")
+        calc.doOperation("×")
+        calc.setOperand(2)
+        calc.doOperation("=")
         
+        XCTAssertEqual(calc.result, 32)
+    }
+    
+    func testClearNumber() {
+        let calc = Calculator()
+        calc.setOperand(8)
+        calc.doOperation("C")
+        
+        XCTAssertEqual(calc.result, 0.0)
     }
     
     // MARK: Calculator View Controller
@@ -173,5 +190,9 @@ class CalcinatorTests: XCTestCase {
         controller.operatorPressed(button)
         
         XCTAssertEqual(controller.displayLabel.text!, "1.0")
+    }
+    
+    func testClearDecimal() {
+    
     }
 }

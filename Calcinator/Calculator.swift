@@ -68,11 +68,11 @@ class Calculator {
             case .BinaryOperation(let function):
                 doPendingOperation()
                 pending = PendingBinaryOperation(operation: function, firstOperand: total)
+                userIsInTheMiddleOfOperation = true
             case .Equals:
+                userIsInTheMiddleOfOperation = false
                 doPendingOperation()
             }
-            
-            userIsInTheMiddleOfOperation = true
         }
     }
     // MARK: Private Methods

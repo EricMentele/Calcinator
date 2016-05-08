@@ -21,7 +21,8 @@ class CalcinatorViewController: UIViewController {
     
     private var displayValue: Double {
         get {
-            return Double(displayLabel.text!)!
+            let value = Double(displayLabel.text!) ?? 0
+            return value
         }
         set {
             dispatch_async(dispatch_get_main_queue()) { 
