@@ -36,7 +36,7 @@ class CalcinatorTests: XCTestCase {
         calc.setOperand(6)
         calc.doOperation("=")
         
-        XCTAssertEqual(calc.result, 11)
+        XCTAssertEqual(calc.result, 6)
     }
     
     func testToggleSign() {
@@ -81,7 +81,7 @@ class CalcinatorTests: XCTestCase {
         calc.doOperation("×")
         calc.doOperation("×")
         
-        XCTAssertEqual(calc.result, 25)
+        XCTAssertEqual(calc.result, 5)
     }
     
     func testDoOperationSubtract() {
@@ -91,7 +91,7 @@ class CalcinatorTests: XCTestCase {
         calc.setOperand(2)
         calc.doOperation("−")
         
-        XCTAssertEqual(calc.result, 6)
+        XCTAssertEqual(calc.result, 2)
     }
     
     func testDoOperationAdd() {
@@ -120,6 +120,19 @@ class CalcinatorTests: XCTestCase {
         calc.doOperation("=")
         
         XCTAssertEqual(calc.result, 64)
+    }
+    
+    func testDoOperationSwitch() {
+        let calc = Calculator()
+        calc.setOperand(8)
+        calc.doOperation("×")
+        calc.doOperation("-")
+        
+        XCTAssertEqual(calc.result, 8)
+    }
+    
+    func testClear() {
+        
     }
     
     // MARK: Calculator View Controller

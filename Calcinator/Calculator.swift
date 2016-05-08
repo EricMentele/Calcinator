@@ -17,9 +17,10 @@ class Calculator {
     
     /// Keep track of the running total of operations
     private var total: Double = 0
+    private var userIsInTheMiddleOfOperation = false
+    private var description: String?
     
     // MARK: Private Properties
-    private var userIsInMiddleOfOperation = false
     private var pending: PendingBinaryOperation?
     
     private struct PendingBinaryOperation {
@@ -52,14 +53,11 @@ class Calculator {
      */
     func setOperand(opperand: Double) {
         total = opperand
-        
-        if pending != nil {
-            userIsInMiddleOfOperation = false
-        }
+        userIsInTheMiddleOfOperation = false
     }
     
     func doOperation(symbol: String) {
-        if let operation = operations[symbol] {
+        if let operation = operations[symbol] where !userIsInTheMiddleOfOperation {
             switch operation {
             case .UnaryOperation(let function):
                 if symbol == "C" {
@@ -68,12 +66,13 @@ class Calculator {
                 
                 total = function(total)
             case .BinaryOperation(let function):
-                userIsInMiddleOfOperation = true
                 doPendingOperation()
                 pending = PendingBinaryOperation(operation: function, firstOperand: total)
             case .Equals:
                 doPendingOperation()
             }
+            
+            userIsInTheMiddleOfOperation = true
         }
     }
     // MARK: Private Methods
@@ -81,5 +80,7 @@ class Calculator {
         if let pendingOperation = pending {
             total = pendingOperation.operation(pendingOperation.firstOperand, total)
         }
+        
+        pending = nil
     }
 }

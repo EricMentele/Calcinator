@@ -71,7 +71,6 @@ class CalcinatorViewController: UIViewController {
         displayValue = calculator.result
     }
     
-
     /*
     // MARK: - Navigation
 
