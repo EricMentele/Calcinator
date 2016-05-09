@@ -17,6 +17,8 @@ class Calculator {
     
     /// Keep track of the running total of operations
     private var total: Double = 0
+    private var userIsInTheMiddleOfOperation = false
+    private var description: String?
     
     // MARK: Private Properties
     private var pending: PendingBinaryOperation?
@@ -30,9 +32,11 @@ class Calculator {
         "C" : Operation.UnaryOperation({ $0 * 0 }),
         "\u{207A}\u{2215}\u{208B}" : Operation.UnaryOperation({ -$0 }),
         "%" : Operation.UnaryOperation({ $0 / 100 }),
+        "15%" : Operation.UnaryOperation({ $0 * 0.15 }),
+        "20%" : Operation.UnaryOperation({ $0 * 0.20 }),
         "÷" : Operation.BinaryOperation({ $0 / $1 }),
         "×" : Operation.BinaryOperation({ $0 * $1 }),
-        "−" : Operation.BinaryOperation({ $0 - $1 }),
+        "-" : Operation.BinaryOperation({ $0 - $1 }),
         "+" : Operation.BinaryOperation({ $0 + $1 }),
         "=" : Operation.Equals
     ]
@@ -51,17 +55,24 @@ class Calculator {
      */
     func setOperand(opperand: Double) {
         total = opperand
+        userIsInTheMiddleOfOperation = false
     }
     
     func doOperation(symbol: String) {
-        if let operation = operations[symbol] {
+        if let operation = operations[symbol] where !userIsInTheMiddleOfOperation {
             switch operation {
             case .UnaryOperation(let function):
+                if symbol == "C" {
+                    pending = nil
+                }
+                
                 total = function(total)
             case .BinaryOperation(let function):
                 doPendingOperation()
                 pending = PendingBinaryOperation(operation: function, firstOperand: total)
+                userIsInTheMiddleOfOperation = true
             case .Equals:
+                userIsInTheMiddleOfOperation = false
                 doPendingOperation()
             }
         }
@@ -70,7 +81,8 @@ class Calculator {
     private func doPendingOperation() {
         if let pendingOperation = pending {
             total = pendingOperation.operation(pendingOperation.firstOperand, total)
-            pending = nil
         }
+        
+        pending = nil
     }
 }

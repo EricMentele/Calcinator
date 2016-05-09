@@ -12,6 +12,7 @@ class CalcinatorViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var historyLabel: UILabel!
     @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet weak var negativePositiveButton: UIButton!
     
     // MARK: Properties
     private let calculator = Calculator()
@@ -21,17 +22,21 @@ class CalcinatorViewController: UIViewController {
     
     private var displayValue: Double {
         get {
-            let value: Double = Double(displayLabel.text!)!
+            let value = Double(displayLabel.text!) ?? 0
             return value
         }
         set {
-            self.displayLabel.text = String(newValue)
+            dispatch_async(dispatch_get_main_queue()) { 
+                self.displayLabel.text = String(newValue)
+            }
         }
     }
     
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        negativePositiveButton.setTitle("\u{207A}\u{2215}\u{208B}", forState: .Normal)
     }
     
     // MARK: Actions
@@ -42,19 +47,16 @@ class CalcinatorViewController: UIViewController {
         
         if digit == "." && pointAdded == true {
             return
+        } else if digit  == "." {
+            self.pointAdded = true
         }
         
         if userIsInTheMiddleOfTyping {
             self.displayLabel.text = displayLabel.text! + digit
         } else {
             self.displayLabel.text = digit
+            self.userIsInTheMiddleOfTyping = true
         }
-        
-        if sender.currentTitle  == "." {
-            self.pointAdded = true
-        }
-        
-        userIsInTheMiddleOfTyping = true
     }
     
     @IBAction func operatorPressed(sender: UIButton) {
@@ -63,17 +65,16 @@ class CalcinatorViewController: UIViewController {
         }
         
         pointAdded = false
-        
+        // TODO: TEST THIS BETTER
         if userIsInTheMiddleOfTyping {
+            userIsInTheMiddleOfTyping = false
             calculator.setOperand(displayValue)
-            self.userIsInTheMiddleOfTyping = false
         }
         
         calculator.doOperation(pressedOperator)
-        self.displayValue = calculator.result
+        displayValue = calculator.result
     }
     
-
     /*
     // MARK: - Navigation
 
