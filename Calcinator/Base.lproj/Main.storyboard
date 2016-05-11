@@ -20,10 +20,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72z-93-3NR" userLabel="Extra Operators Pad Back">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="140" width="204" height="527"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZcR-Lf-P2n" userLabel="Operator Pad Back">
                                 <rect key="frame" x="251" y="139" width="124" height="528"/>
                                 <color key="backgroundColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="308" y="136" width="67" height="531"/>
+                                </variation>
                                 <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="226" y="139" width="149" height="528"/>
                                 </variation>
@@ -31,7 +37,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R8v-kq-Wbj" userLabel="Display Stack">
                                 <rect key="frame" x="0.0" y="20" width="375" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↶ Normal Mode ↷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxx-1e-bmH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxx-1e-bmH">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -63,33 +69,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="W2i-Mk-zRR">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdP-eQ-hBT">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="131"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EG9-Mg-Cbw"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-Vh-IY6">
-                                                <rect key="frame" x="34" y="0.0" width="33" height="131"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fd4-77-kMy"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-Gn-6fO">
                                                 <rect key="frame" x="68" y="0.0" width="34" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="xY">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -100,7 +84,7 @@
                                                 <rect key="frame" x="103" y="0.0" width="33" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="(">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -111,7 +95,7 @@
                                                 <rect key="frame" x="137" y="0.0" width="33" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title=")">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -122,7 +106,7 @@
                                                 <rect key="frame" x="171" y="0.0" width="33" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="+-">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -190,33 +174,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="oCr-IM-kTY">
                                         <rect key="frame" x="0.0" y="132" width="375" height="131"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyu-Xo-zwV">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="131"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W20-z0-wwh"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPo-OW-xdf">
-                                                <rect key="frame" x="34" y="0.0" width="33" height="131"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OnP-QP-Smk"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sc7-3D-Sx6">
                                                 <rect key="frame" x="68" y="0.0" width="34" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="y√x">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -227,7 +189,7 @@
                                                 <rect key="frame" x="103" y="0.0" width="33" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="sin">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -238,7 +200,7 @@
                                                 <rect key="frame" x="137" y="0.0" width="33" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="cos">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -249,7 +211,7 @@
                                                 <rect key="frame" x="171" y="0.0" width="33" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="tan">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -316,33 +278,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qRY-90-hv6">
                                         <rect key="frame" x="0.0" y="264" width="375" height="131"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lA0-BA-UVb">
-                                                <rect key="frame" x="0.0" y="0.0" width="33" height="131"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Gi-Ql-qN2"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyy-Qi-AOU">
-                                                <rect key="frame" x="34" y="0.0" width="33" height="131"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="amT-Au-OPk"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1l-70-plv">
                                                 <rect key="frame" x="68" y="0.0" width="34" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="logx">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -353,7 +293,7 @@
                                                 <rect key="frame" x="103" y="0.0" width="33" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="℮">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -364,7 +304,7 @@
                                                 <rect key="frame" x="137" y="0.0" width="33" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="π">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -439,36 +379,14 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="iaF-7e-BU3">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="iaF-7e-BU3">
                                         <rect key="frame" x="0.0" y="396" width="375" height="131"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VL9-0j-alP">
-                                                <rect key="frame" x="0.0" y="0.0" width="36" height="131"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LQx-iq-594"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqE-eg-t40">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="131"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="operatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E2X-nG-QM7"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njH-Lg-Tvg">
                                                 <rect key="frame" x="75" y="0.0" width="36" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="Rand">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -479,7 +397,7 @@
                                                 <rect key="frame" x="112" y="0.0" width="37" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="x!">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -490,7 +408,7 @@
                                                 <rect key="frame" x="150" y="0.0" width="36" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="[">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -501,7 +419,7 @@
                                                 <rect key="frame" x="187" y="0.0" width="17" height="131"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal">
+                                                <state key="normal" title="]">
                                                     <color key="titleColor" red="0.90015933390000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -553,40 +471,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="JSc-a9-Jpt" firstAttribute="width" secondItem="VL9-0j-alP" secondAttribute="width" id="68H-Dj-vUu"/>
-                                            <constraint firstItem="PnE-Pq-w6w" firstAttribute="width" secondItem="VL9-0j-alP" secondAttribute="width" id="CRG-dD-YC5"/>
-                                            <constraint firstItem="Qmc-kc-C0O" firstAttribute="width" secondItem="VL9-0j-alP" secondAttribute="width" id="PpJ-9p-3p9"/>
-                                            <constraint firstItem="MqE-eg-t40" firstAttribute="width" secondItem="VL9-0j-alP" secondAttribute="width" id="kh8-8R-mqw"/>
-                                            <constraint firstItem="njH-Lg-Tvg" firstAttribute="width" secondItem="VL9-0j-alP" secondAttribute="width" id="yN0-If-p9o"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="kh8-8R-mqw"/>
-                                                <exclude reference="yN0-If-p9o"/>
-                                                <exclude reference="CRG-dD-YC5"/>
-                                                <exclude reference="68H-Dj-vUu"/>
-                                                <exclude reference="PpJ-9p-3p9"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="kh8-8R-mqw"/>
-                                                <include reference="yN0-If-p9o"/>
-                                                <include reference="CRG-dD-YC5"/>
-                                                <include reference="68H-Dj-vUu"/>
-                                                <include reference="PpJ-9p-3p9"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact-widthClass=regular">
-                                            <mask key="constraints">
-                                                <exclude reference="kh8-8R-mqw"/>
-                                                <exclude reference="yN0-If-p9o"/>
-                                                <exclude reference="CRG-dD-YC5"/>
-                                                <exclude reference="68H-Dj-vUu"/>
-                                                <exclude reference="PpJ-9p-3p9"/>
-                                            </mask>
-                                        </variation>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -615,28 +499,29 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="eE0-pd-JaU"/>
+                                        <exclude reference="tau-ua-87o"/>
+                                        <exclude reference="nbR-w3-h6Z"/>
                                         <exclude reference="vYQ-4m-HhO"/>
+                                        <exclude reference="nef-DB-JST"/>
                                         <exclude reference="2Gl-Wm-6NU"/>
                                         <exclude reference="OEw-hy-ZhP"/>
                                         <exclude reference="hbh-If-tOW"/>
                                         <exclude reference="lBD-gW-dsI"/>
                                         <exclude reference="vPz-sj-tK5"/>
-                                        <exclude reference="tau-ua-87o"/>
-                                        <exclude reference="nbR-w3-h6Z"/>
-                                        <exclude reference="nef-DB-JST"/>
                                         <exclude reference="Rp9-df-pyd"/>
                                         <exclude reference="V4G-cm-7bA"/>
                                         <exclude reference="1Wt-Rc-rCJ"/>
                                         <exclude reference="y2a-Uu-qd7"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact">
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="140" width="487" height="527"/>
                                     <mask key="constraints">
+                                        <include reference="nbR-w3-h6Z"/>
+                                        <include reference="nef-DB-JST"/>
                                         <include reference="2Gl-Wm-6NU"/>
                                         <exclude reference="Yy3-gy-bNh"/>
                                         <include reference="vPz-sj-tK5"/>
-                                        <include reference="nbR-w3-h6Z"/>
-                                        <include reference="nef-DB-JST"/>
                                         <include reference="V4G-cm-7bA"/>
                                         <include reference="1Wt-Rc-rCJ"/>
                                     </mask>
@@ -659,13 +544,11 @@
                         <constraints>
                             <constraint firstItem="ZcR-Lf-P2n" firstAttribute="leading" secondItem="RgP-yQ-Hu8" secondAttribute="trailing" constant="1" id="4LR-Bb-6CX"/>
                             <constraint firstItem="72z-93-3NR" firstAttribute="bottom" secondItem="Qmc-kc-C0O" secondAttribute="bottom" id="4zp-pa-Jfq"/>
-                            <constraint firstItem="72z-93-3NR" firstAttribute="top" secondItem="IdP-eQ-hBT" secondAttribute="top" id="EzS-h0-KPM"/>
                             <constraint firstItem="R8v-kq-Wbj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GIS-8v-o5Q"/>
                             <constraint firstAttribute="trailing" secondItem="ZcR-Lf-P2n" secondAttribute="trailing" id="GcR-1w-2O3"/>
                             <constraint firstAttribute="trailing" secondItem="R8v-kq-Wbj" secondAttribute="trailing" id="HNG-Rf-hT9"/>
                             <constraint firstItem="72z-93-3NR" firstAttribute="trailing" secondItem="Qmc-kc-C0O" secondAttribute="trailing" id="IZe-Il-1bp"/>
                             <constraint firstItem="JlZ-CP-O0V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MRQ-cf-7ea"/>
-                            <constraint firstItem="72z-93-3NR" firstAttribute="leading" secondItem="IdP-eQ-hBT" secondAttribute="leading" id="PKS-CZ-jzc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZcR-Lf-P2n" secondAttribute="bottom" id="UNA-gc-1uR"/>
                             <constraint firstItem="ZcR-Lf-P2n" firstAttribute="top" secondItem="R5U-fA-ZEh" secondAttribute="bottom" constant="-1" id="XiK-Y9-6Tq">
                                 <variation key="heightClass=compact" constant="-4"/>
@@ -682,9 +565,7 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="4zp-pa-Jfq"/>
-                                <exclude reference="EzS-h0-KPM"/>
                                 <exclude reference="IZe-Il-1bp"/>
-                                <exclude reference="PKS-CZ-jzc"/>
                                 <exclude reference="MRQ-cf-7ea"/>
                             </mask>
                         </variation>
@@ -695,9 +576,7 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="4zp-pa-Jfq"/>
-                                <include reference="EzS-h0-KPM"/>
                                 <include reference="IZe-Il-1bp"/>
-                                <include reference="PKS-CZ-jzc"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -706,9 +585,7 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="4zp-pa-Jfq"/>
-                                <exclude reference="EzS-h0-KPM"/>
                                 <exclude reference="IZe-Il-1bp"/>
-                                <exclude reference="PKS-CZ-jzc"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
